@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+
+  build:
+    commands:
+      - echo Build Started
+      - mvn clean test package
+
+artifacts:
+  files:
+    - target/*.jar
+
+reports:
+  junit_reports:
+    files:
+      - target/surefire-reports/*.xml
+    file-format: JUNITXML
